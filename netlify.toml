@@ -1,10 +1,12 @@
-[functions]
-  directory = "netlify/functions"
-  node_bundler = "esbuild"
+[build]
+  publish = "."
+  functions = "netlify/functions"
 
+# Helpful headers and allow geolocation
 [[headers]]
   for = "/*"
   [headers.values]
-    Access-Control-Allow-Origin = "*"
-    Access-Control-Allow-Methods = "GET, POST, OPTIONS"
-    Access-Control-Allow-Headers = "Content-Type, Authorization"
+  X-Content-Type-Options = "nosniff"
+  Permissions-Policy = "geolocation=(self)"
+  Referrer-Policy = "strict-origin-when-cross-origin"
+  Cache-Control = "public, max-age=300"
