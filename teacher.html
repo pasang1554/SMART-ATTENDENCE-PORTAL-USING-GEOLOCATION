@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Teacher Console • Student Attendance Portal</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body data-page="teacher">
+  <header class="app-header">
+    <div class="wrap">
+      <div class="brand">Teacher Console</div>
+      <div class="spacer"></div>
+      <div id="navUser" class="user-chip">User</div>
+      <button id="themeToggle" class="icon-btn" aria-label="Toggle theme">🌓</button>
+      <button id="logoutBtn" class="btn ghost">Logout</button>
+    </div>
+  </header>
+
+  <div class="app-shell">
+    <aside class="sidebar">
+      <div class="title">Attendance Portal</div>
+      <div class="role-badge">Role: Teacher</div>
+      <nav class="menu">
+        <a href="#start" class="active">Start session</a>
+        <a href="#active">Active sessions</a>
+        <a href="#all">All sessions</a>
+        <a href="#pending">Pending approvals</a>
+      </nav>
+    </aside>
+
+    <main class="shell-main">
+      <section id="start" class="card">
+        <h2>Start a session</h2>
+        <form id="startSessionForm" class="grid grid-3" novalidate>
+          <div>
+            <label for="sessSubject">Subject</label>
+            <input id="sessSubject" placeholder="e.g., Mathematics" required />
+          </div>
+          <div>
+            <label for="sessStart">Start time</label>
+            <input id="sessStart" type="datetime-local" required />
+          </div>
+          <div>
+            <label for="sessEnd">End time</label>
+            <input id="sessEnd" type="datetime-local" required />
+          </div>
+          <div>
+            <label for="geoLat">Geofence latitude</label>
+            <input id="geoLat" placeholder="Lat" />
+          </div>
+          <div>
+            <label for="geoLng">Geofence longitude</label>
+            <input id="geoLng" placeholder="Lng" />
+          </div>
+          <div>
+            <label for="geoRadius">Geofence radius (m)</label>
+            <input id="geoRadius" type="number" min="20" value="150" />
+          </div>
+          <div>
+            <label for="lateAfter">Late after (minutes)</label>
+            <input id="lateAfter" type="number" min="0" value="15" />
+          </div>
+          <div>
+            <label for="maxApprovals">Max approvals (cap, optional)</label>
+            <input id="maxApprovals" type="number" min="1" placeholder="e.g., 60" />
+          </div>
+          <div class="row" style="align-items:end;">
+            <button type="button" id="btnUseMyLocation" class="btn secondary">Use my location</button>
+          </div>
+          <div class="row" style="align-items:end;">
+            <button type="submit" class="btn">Start Session</button>
+          </div>
+        </form>
+      </section>
+
+      <section id="createdCard" class="card" style="display:none;"></section>
+
+      <section id="active" class="card">
+        <h2>Active sessions</h2>
+        <div id="activeSessionsList" class="grid"></div>
+      </section>
+
+      <section id="all" class="card">
+        <h2>All sessions</h2>
+        <div id="allSessionsList" class="grid"></div>
+      </section>
+
+      <section id="pending" class="card">
+        <h2>Pending check-ins</h2>
+        <div id="pendingList" class="grid"></div>
+      </section>
+    </main>
+  </div>
+
+  <footer class="footer">© 2025 Student Attendance Portal</footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/qrcode@1.5.3/build/qrcode.min.js"></script>
+  <script src="js/auth.js"></script>
+  <script src="js/ui.js"></script>
+  <script src="js/sessions.js"></script>
+  <script src="js/teacher.js"></script>
+</body>
+</html>

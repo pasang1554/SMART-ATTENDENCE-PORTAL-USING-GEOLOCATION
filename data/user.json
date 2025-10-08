@@ -1,0 +1,29 @@
+[
+  {
+    "username": "student01",
+    "email": "student@example.com",
+    "password": "password123",
+    "name": "Alex Johnson",
+    "id": "STU-1001",
+    "role": "student",
+    "department": "Computer Science",
+    "contact": "555-0102"
+  },
+  {
+    "username": "teacher01",
+    "email": "teacher@example.com",
+    "password": "password123",
+    "name": "Dr. Emily Carter",
+    "id": "TCH-2001",
+    "role": "teacher",
+    "department": "Physics"
+  },
+  {
+    "username": "admin01",
+    "email": "admin@example.com",
+    "password": "password123",
+    "name": "Admin User",
+    "id": "ADM-3001",
+    "role": "admin"
+  }
+]

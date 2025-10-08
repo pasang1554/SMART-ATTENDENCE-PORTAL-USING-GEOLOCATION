@@ -1,0 +1,142 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Admin Console • Student Attendance Portal</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body data-page="admin">
+  <header class="app-header">
+    <div class="wrap">
+      <div class="brand">Admin Console</div>
+      <div class="spacer"></div>
+      <div id="navUser" class="user-chip">User</div>
+      <button id="themeToggle" class="icon-btn" aria-label="Toggle theme">🌓</button>
+      <button id="logoutBtn" class="btn ghost">Logout</button>
+    </div>
+  </header>
+
+  <div class="app-shell">
+    <aside class="sidebar">
+      <div class="title">Attendance Portal</div>
+      <div class="role-badge">Role: Admin</div>
+      <nav class="menu">
+        <a href="#overview" class="active">Overview</a>
+        <a href="#users">Users</a>
+        <a href="#reports">Reports / Export</a>
+      </nav>
+    </aside>
+
+    <main class="shell-main">
+      <section id="overview" class="card">
+        <h2>System summary</h2>
+        <ul class="helper" style="margin-top:.5rem; padding-left:1rem;">
+          <li>Total sessions: <strong id="sumSessions">0</strong> (<span id="sumActive">0</span> active)</li>
+          <li>Approved check-ins: <strong id="sumApproved">0</strong></li>
+          <li>Pending check-ins: <strong id="sumPending">0</strong></li>
+          <li>Users: <strong id="sumUsers">0</strong></li>
+        </ul>
+      </section>
+
+      <section id="reports" class="card">
+        <h2>CSV export</h2>
+        <div class="grid grid-2" style="margin-top:.5rem;">
+          <div>
+            <label for="repStart">Start date</label>
+            <input id="repStart" type="date" />
+          </div>
+          <div>
+            <label for="repEnd">End date</label>
+            <input id="repEnd" type="date" />
+          </div>
+          <div>
+            <label for="repSubject">Subject contains</label>
+            <input id="repSubject" placeholder="e.g., Math" />
+          </div>
+          <div>
+            <label for="repTeacher">Teacher contains</label>
+            <input id="repTeacher" placeholder="e.g., Clark" />
+          </div>
+        </div>
+        <div class="row" style="margin-top:.75rem;">
+          <button id="btnPreview" class="btn secondary">Preview count</button>
+          <button id="btnExport" class="btn">Export CSV</button>
+          <div id="repCount" class="helper"></div>
+        </div>
+      </section>
+
+      <section id="users" class="card">
+        <h2>User management</h2>
+        <form id="addUserForm" class="grid" style="margin-top:.5rem;">
+          <div class="grid grid-2">
+            <div>
+              <label for="uRole">Role</label>
+              <select id="uRole">
+                <option value="student">Student</option>
+                <option value="teacher">Teacher</option>
+                <option value="admin">Admin</option>
+              </select>
+            </div>
+            <div>
+              <label for="uId">User ID</label>
+              <input id="uId" placeholder="STU-1002 or leave blank to auto" />
+            </div>
+          </div>
+          <div class="grid grid-2">
+            <div>
+              <label for="uName">Full name</label>
+              <input id="uName" required />
+            </div>
+            <div>
+              <label for="uDept">Department</label>
+              <input id="uDept" placeholder="e.g., CS" />
+            </div>
+          </div>
+          <div class="grid grid-2">
+            <div>
+              <label for="uEmail">Email</label>
+              <input id="uEmail" type="email" required />
+            </div>
+            <div>
+              <label for="uContact">Contact</label>
+              <input id="uContact" />
+            </div>
+          </div>
+          <div class="grid grid-2">
+            <div>
+              <label for="uUsername">Username</label>
+              <input id="uUsername" required />
+            </div>
+            <div>
+              <label for="uPassword">Password</label>
+              <input id="uPassword" required />
+            </div>
+          </div>
+          <div class="row" style="margin-top:.5rem;">
+            <button class="btn" type="submit">Add user</button>
+          </div>
+        </form>
+
+        <div class="table-wrap" style="margin-top:1rem;">
+          <table>
+            <thead>
+              <tr>
+                <th>Role</th><th>User ID</th><th>Name</th><th>Username</th><th>Email</th><th>Dept</th><th>Actions</th>
+              </tr>
+            </thead>
+            <tbody id="usersTable"></tbody>
+          </table>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <footer class="footer">© 2025 Student Attendance Portal</footer>
+
+  <script src="js/auth.js"></script>
+  <script src="js/ui.js"></script>
+  <script src="js/sessions.js"></script>
+  <script src="js/admin.js"></script>
+</body>
+</html>

@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Student Attendance Portal • Login</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body data-page="login">
+  <header class="app-header">
+    <div class="wrap">
+      <div class="brand">Attendance<span class="dot">•</span>Portal</div>
+      <div class="spacer"></div>
+      <button id="themeToggle" class="icon-btn" aria-label="Toggle theme">🌓</button>
+    </div>
+  </header>
+
+  <main class="container center">
+    <section class="card login-card" aria-labelledby="loginTitle">
+      <h1 id="loginTitle" class="login-title">Welcome back</h1>
+      <p class="helper">Sign in to access your dashboard.</p>
+
+      <div class="credentials" aria-live="polite">
+        Demo logins:
+        <ul style="margin:.4rem 0 .2rem 1rem; padding:0;">
+          <li>Student — username: <strong>student01</strong>, password: <strong>password123</strong></li>
+          <li>Teacher — username: <strong>teacher01</strong>, password: <strong>teacher123</strong></li>
+          <li>Admin — username: <strong>admin01</strong>, password: <strong>admin123</strong></li>
+        </ul>
+        <div class="row" style="margin-top:.4rem;">
+          <span class="helper">Try a demo login:</span>
+          <button type="button" class="btn ghost" data-demo-fill="student">Student</button>
+          <button type="button" class="btn ghost" data-demo-fill="teacher">Teacher</button>
+          <button type="button" class="btn ghost" data-demo-fill="admin">Admin</button>
+        </div>
+      </div>
+
+      <form id="loginForm" class="grid" style="margin-top: .9rem;" novalidate>
+        <div>
+          <label for="identifier">Email or Username</label>
+          <input id="identifier" name="identifier" type="text" autocomplete="username" required />
+        </div>
+        <div>
+          <label for="password">Password</label>
+          <div class="row">
+            <input id="password" name="password" type="password" autocomplete="current-password" required />
+            <button type="button" id="togglePw" class="btn ghost" aria-label="Show/Hide password">👁️</button>
+          </div>
+        </div>
+        <div id="loginError" class="error" aria-live="assertive"></div>
+        <div class="row justify-between" style="margin-top: .25rem;">
+          <div class="helper">Need access? Contact admin.</div>
+          <button type="submit" class="btn">Log in</button>
+        </div>
+      </form>
+    </section>
+  </main>
+
+  <footer class="footer">© 2025 Student Attendance Portal</footer>
+
+  <!-- Script for demo login autofill -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const presets = {
+        student: { id: 'student01', pw: 'password123' },
+        teacher: { id: 'teacher01', pw: 'teacher123' },
+        admin:   { id: 'admin01',   pw: 'admin123' }
+      };
+      document.querySelectorAll('[data-demo-fill]').forEach(btn => {
+        btn.addEventListener('click', () => {
+          const p = presets[btn.dataset.demoFill];
+          document.getElementById('identifier').value = p.id;
+          document.getElementById('password').value = p.pw;
+        });
+      });
+    });
+  </script>
+
+  <script src="js/ui.js"></script>
+  <script src="js/geo.js"></script>
+  <script src="js/auth.js"></script>
+</body>
+</html>

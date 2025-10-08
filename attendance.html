@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Attendance Logs • Student Attendance Portal</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body data-page="attendance" data-roles="student">
+  <header class="app-header">
+    <div class="wrap">
+      <div class="brand">Attendance<span class="dot">•</span>Portal</div>
+
+      <!-- ✅ Role-aware Navigation -->
+      <nav class="nav">
+        <a href="dashboard.html" data-active="dashboard">Dashboard</a>
+        <a href="attendance.html" data-active="attendance">Attendance Logs</a>
+        <a href="student-checkin.html" data-active="checkin" data-roles="student,teacher,admin">Check-In</a>
+        <a href="teacher.html" data-active="teacher" data-roles="teacher,admin">Teacher Console</a>
+        <a href="admin.html" data-active="admin" data-roles="admin">Admin</a>
+        <a href="profile.html" data-active="profile">Profile</a>
+        <a href="settings.html" data-active="settings">Settings</a>
+      </nav>
+
+      <div class="spacer"></div>
+      <div id="navUser" class="user-chip">User</div>
+      <button id="themeToggle" class="icon-btn" aria-label="Toggle theme">🌓</button>
+      <button id="logoutBtn" class="btn ghost">Logout</button>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="card">
+      <div class="row justify-between" style="gap: .75rem; flex-wrap: wrap;">
+        <div class="row" style="gap: .5rem;">
+          <input id="filterInput" type="search" placeholder="Filter by subject..." />
+          <select id="statusFilter">
+            <option value="">All statuses</option>
+            <option value="present">Present</option>
+            <option value="absent">Absent</option>
+            <option value="late">Late</option>
+          </select>
+          <button id="toggleSort" class="btn ghost" title="Toggle date sort">Date ↓</button>
+        </div>
+        <div class="row">
+          <label for="rowsPerPage">Rows</label>
+          <select id="rowsPerPage">
+            <option>10</option>
+            <option>15</option>
+            <option>20</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="table-wrap" style="margin-top: .8rem;">
+        <table aria-label="Attendance records">
+          <thead>
+            <tr>
+              <th>Date</th>
+              <th>Subject</th>
+              <th>Status</th>
+            </tr>
+          </thead>
+          <tbody id="logsBody"></tbody>
+        </table>
+      </div>
+
+      <div class="row justify-between" style="margin-top: .7rem;">
+        <div id="rowsInfo" class="helper">Showing 0-0 of 0</div>
+        <div id="pagination" class="pagination"></div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">© 2025 Student Attendance Portal</footer>
+
+  <!-- ✅ Script order: auth.js first, then ui.js -->
+  <script src="js/auth.js"></script>
+  <script src="js/ui.js"></script>
+  <script src="js/sessions.js"></script>
+  <script src="js/attendance.js"></script>
+</body>
+</html>

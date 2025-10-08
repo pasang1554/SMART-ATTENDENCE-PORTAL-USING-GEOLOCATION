@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Profile • Student Attendance Portal</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body data-page="profile">
+  <header class="app-header">
+    <div class="wrap">
+      <div class="brand">Attendance<span class="dot">•</span>Portal</div>
+
+      <!-- ✅ Role-aware Navigation -->
+      <nav class="nav">
+        <a href="dashboard.html" data-active="dashboard">Dashboard</a>
+        <a href="attendance.html" data-active="attendance">Attendance Logs</a>
+        <a href="student-checkin.html" data-active="checkin" data-roles="student,teacher,admin">Check-In</a>
+        <a href="teacher.html" data-active="teacher" data-roles="teacher,admin">Teacher Console</a>
+        <a href="admin.html" data-active="admin" data-roles="admin">Admin</a>
+        <a href="profile.html" data-active="profile">Profile</a>
+        <a href="settings.html" data-active="settings">Settings</a>
+      </nav>
+
+      <div class="spacer"></div>
+      <div id="navUser" class="user-chip">User</div>
+      <button id="themeToggle" class="icon-btn" aria-label="Toggle theme">🌓</button>
+      <button id="logoutBtn" class="btn ghost">Logout</button>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="card">
+      <h2>Student profile</h2>
+      <form id="profileForm" class="grid grid-2" novalidate>
+        <div>
+          <label for="name">Full name</label>
+          <input id="name" required />
+          <div id="errName" class="error" aria-live="assertive"></div>
+        </div>
+        <div>
+          <label for="email">Email</label>
+          <input id="email" type="email" required />
+          <div id="errEmail" class="error" aria-live="assertive"></div>
+        </div>
+        <div>
+          <label for="contact">Contact number</label>
+          <input id="contact" placeholder="+1 555-0102" />
+          <div id="errContact" class="error" aria-live="assertive"></div>
+        </div>
+        <div>
+          <label for="department">Department</label>
+          <input id="department" />
+        </div>
+        <div>
+          <label for="studentId">Student ID</label>
+          <input id="studentId" />
+        </div>
+        <div></div>
+        <div class="row" style="margin-top:.75rem;">
+          <button type="submit" class="btn">Save changes</button>
+          <a class="btn secondary" href="dashboard.html">Back to Dashboard</a>
+        </div>
+      </form>
+    </section>
+  </main>
+
+  <footer class="footer">© 2025 Student Attendance Portal</footer>
+
+  <!-- ✅ Script order: auth.js first, then ui.js -->
+  <script src="js/auth.js"></script>
+  <script src="js/ui.js"></script>
+  <script src="js/profile.js"></script>
+</body>
+</html>

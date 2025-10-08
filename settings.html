@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Settings • Student Attendance Portal</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body data-page="settings">
+  <header class="app-header">
+    <div class="wrap">
+      <div class="brand">Attendance<span class="dot">•</span>Portal</div>
+
+      <!-- ✅ Role-aware Navigation -->
+      <nav class="nav">
+        <a href="dashboard.html" data-active="dashboard">Dashboard</a>
+        <a href="attendance.html" data-active="attendance">Attendance Logs</a>
+        <a href="student-checkin.html" data-active="checkin" data-roles="student,teacher,admin">Check-In</a>
+        <a href="teacher.html" data-active="teacher" data-roles="teacher,admin">Teacher Console</a>
+        <a href="admin.html" data-active="admin" data-roles="admin">Admin</a>
+        <a href="profile.html" data-active="profile">Profile</a>
+        <a href="settings.html" data-active="settings">Settings</a>
+      </nav>
+
+      <div class="spacer"></div>
+      <div id="navUser" class="user-chip">User</div>
+      <button id="themeToggle" class="icon-btn" aria-label="Toggle theme">🌓</button>
+      <button id="logoutBtn" class="btn ghost">Logout</button>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="card">
+      <h2>Appearance</h2>
+      <p class="helper">Pick theme and accent to keep visual identity consistent across pages.</p>
+      <div class="row" style="margin-top: .6rem;">
+        <div class="badge">Theme</div>
+        <button id="themeToggle" class="btn secondary">Cycle Theme (Light / Dark / Auto)</button>
+      </div>
+
+      <div style="margin-top: 1rem;">
+        <div class="badge">Accent</div>
+        <div id="accentChoices" class="row" style="margin-top:.5rem;">
+          <button class="btn ghost" data-color="#22c55e" style="border-color:#22c55e;color:#22c55e;">Green</button>
+          <button class="btn ghost" data-color="#2563eb" style="border-color:#2563eb;color:#2563eb;">Blue</button>
+          <button class="btn ghost" data-color="#f97316" style="border-color:#f97316;color:#f97316;">Orange</button>
+          <button class="btn ghost" data-color="#a855f7" style="border-color:#a855f7;color:#a855f7;">Purple</button>
+          <button class="btn ghost" data-color="#ef4444" style="border-color:#ef4444;color:#ef4444;">Red</button>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">© 2025 Student Attendance Portal</footer>
+
+  <!-- ✅ Script order: auth.js first, then ui.js -->
+  <script src="js/auth.js"></script>
+  <script src="js/ui.js"></script>
+</body>
+</html>

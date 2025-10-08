@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Check-In • Student Attendance Portal</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body data-page="checkin" data-roles="student">
+  <header class="app-header">
+    <div class="wrap">
+      <div class="brand">Attendance<span class="dot">•</span>Portal</div>
+      <nav class="nav">
+        <a href="dashboard.html" data-active="dashboard">Dashboard</a>
+        <a href="checkin.html" data-active="checkin">Check-In</a>
+        <a href="attendance.html" data-active="attendance">Attendance Logs</a>
+        <a href="profile.html" data-active="profile">Profile</a>
+        <a href="settings.html" data-active="settings">Settings</a>
+      </nav>
+      <div class="spacer"></div>
+      <div id="navUser" class="user-chip">User</div>
+      <button id="themeToggle" class="icon-btn" aria-label="Toggle theme">🌓</button>
+      <button id="logoutBtn" class="btn ghost">Logout</button>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="card">
+      <h2>Geo Check‑In</h2>
+      <p class="helper">Select an active session, enter the code shown by your teacher, and use your location to check in. Requires https or http://localhost.</p>
+
+      <div class="grid grid-2" style="margin-top:.5rem;">
+        <div>
+          <label for="sessionSelect">Active session</label>
+          <select id="sessionSelect"></select>
+          <div class="helper" id="noSessions" style="display:none;">No active sessions right now.</div>
+        </div>
+        <div>
+          <label for="sessionCode">Session code</label>
+          <input id="sessionCode" placeholder="Enter 6-char code" maxlength="6" />
+        </div>
+      </div>
+
+      <div class="row" style="margin-top:.75rem;">
+        <button id="btnCheckin" class="btn">📍 Use my location & Check-In</button>
+      </div>
+
+      <div id="permNote" class="helper" style="margin-top:.5rem;"></div>
+      <div id="locInfo" class="helper" style="margin-top:.35rem;"></div>
+      <div id="checkinStatus" style="margin-top:.6rem; font-weight: 600;"></div>
+    </section>
+  </main>
+
+  <footer class="footer">© 2025 Student Attendance Portal</footer>
+
+  <script src="js/ui.js"></script>
+  <script src="js/auth.js"></script>
+  <script src="js/sessions.js"></script>
+  <script src="js/student-checkin.js"></script>
+</body>
+</html>
