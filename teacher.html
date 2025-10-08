@@ -30,6 +30,7 @@
     </aside>
 
     <main class="shell-main">
+      <!-- Start a session -->
       <section id="start" class="card">
         <h2>Start a session</h2>
         <form id="startSessionForm" class="grid grid-3" novalidate>
@@ -65,27 +66,36 @@
             <label for="maxApprovals">Max approvals (cap, optional)</label>
             <input id="maxApprovals" type="number" min="1" placeholder="e.g., 60" />
           </div>
-          <div class="row" style="align-items:end;">
+
+          <div class="row" style="align-items:center; gap:.5rem;">
             <button type="button" id="btnUseMyLocation" class="btn secondary">Use my location</button>
+            <div id="locPerm" class="helper" style="margin-top:.35rem; font-size:0.9em; color:var(--text-muted);">
+              Allow location permission in your browser for accurate geofencing.
+            </div>
           </div>
+
           <div class="row" style="align-items:end;">
             <button type="submit" class="btn">Start Session</button>
           </div>
         </form>
       </section>
 
+      <!-- Created session details -->
       <section id="createdCard" class="card" style="display:none;"></section>
 
+      <!-- Active sessions -->
       <section id="active" class="card">
         <h2>Active sessions</h2>
         <div id="activeSessionsList" class="grid"></div>
       </section>
 
+      <!-- All sessions -->
       <section id="all" class="card">
         <h2>All sessions</h2>
         <div id="allSessionsList" class="grid"></div>
       </section>
 
+      <!-- Pending check-ins -->
       <section id="pending" class="card">
         <h2>Pending check-ins</h2>
         <div id="pendingList" class="grid"></div>
@@ -95,6 +105,7 @@
 
   <footer class="footer">© 2025 Student Attendance Portal</footer>
 
+  <!-- Scripts -->
   <script src="https://cdn.jsdelivr.net/npm/qrcode@1.5.3/build/qrcode.min.js"></script>
   <script src="js/auth.js"></script>
   <script src="js/ui.js"></script>
